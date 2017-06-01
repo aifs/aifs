@@ -21,6 +21,7 @@ The code is open source, and available on `Github <https://github.com/digitalove
    :caption: Feature Documentation
    
    routines
+   responses
    aifs-ocr
 
 

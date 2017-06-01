@@ -8,7 +8,7 @@ AIFS tries to implement general patterns related to machine learning and intelli
 Documentation
 -------------
 
-Our documentation hub is available at [docs.aifs.io][2]
+Our documentation hub is available at [aifs.rtfd.io][2]
 
 Contributors
 ------------
@@ -22,7 +22,7 @@ If you discover a security vulnerability within AIFS, please follow our
 [disclosure procedure][4].
 
 [1]: http://aifs.io
-[2]: http://docs.aifs.io
+[2]: http://aifs.rtfd.io/en/latest/index.html 
 [3]: http://digitaloversight.com/contributors
 [4]: http://digitaloversight.com/developers/security
 
