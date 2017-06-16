@@ -137,3 +137,5 @@ $dbh->execute("INSERT INTO osint_changes_size SET fk_osint_url_id=".$new_url_id.
 					old_version_size='".strlen($old_data)."',
 					fk_changes_id='".$last_change_id."'");
 
+$resp->success('200200', 'Normal end of execution.');
+

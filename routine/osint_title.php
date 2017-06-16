@@ -43,5 +43,4 @@ if ($sql->sql_result() == 0) {
                                 title='".addslashes($title)."'");
     }
 }
-
-
+$resp->success('200200', 'Normal end of execution.');

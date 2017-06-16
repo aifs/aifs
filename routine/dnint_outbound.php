@@ -19,3 +19,6 @@ $conf = new Config('dnint');
 $dnint = new DnintRequest();
 
 $dnint->get_outbound();
+
+$resp = new Response();
+$resp->success('200200', 'Normal end of execution.');

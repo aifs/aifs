@@ -30,3 +30,6 @@ if ($count==0) {
     $dbh->execute("UPDATE osint_tags_count SET tags_count = '".$results['mycount']."' WHERE
                                                     tags_name ='".addslashes($results['mytag'])."'");
 }
+
+$resp = new Response();
+$resp->success('200200', 'Normal end of execution.');
