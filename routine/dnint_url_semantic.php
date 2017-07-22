@@ -105,4 +105,5 @@ $query = 'INSERT INTO dnint_parsed_results
                 fk_dnint_contents_parsed_id='. addslashes($newID);
 $stmt2 = $dbh->execute($query);
 
+$resp->success('200200', 'Normal end of execution.');
 

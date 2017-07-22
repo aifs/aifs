@@ -76,4 +76,6 @@ if ($last_id['last_row_id'] >= $first_id_new_table) {
     $dbh->execute("ALTER TABLE `osint_versions` ADD INDEX ( `FK_osint_url_id` ) ");
 }
 
+$resp = new Response();
+$resp->success('200200', 'Normal end of execution.');
 

@@ -77,3 +77,7 @@ if ( $size != strlen(addslashes($content)))      {
 
     }
 }
+
+$resp = new Response();
+$resp->success('200200', 'Normal end of execution.');
+

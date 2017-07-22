@@ -29,3 +29,7 @@ if (strpos($out, '** server') !== false) {
         "\r\t\r\tDelivered you by AIFS node " . $conf->node_name );
     }
 }
+
+$resp = new Response();
+$resp->success('200200', 'Normal end of execution.');
+
