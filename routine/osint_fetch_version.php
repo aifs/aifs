@@ -2,7 +2,7 @@
 
 /**
  * AIFS OSINT Get new remote version
- * @version 1.03
+ * @version 1.04
  * @digitaloversight
  */
 

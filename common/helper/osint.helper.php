@@ -38,10 +38,10 @@ function cleanhtml( $string )  {
  * @version 1.03
  */
 
-function mailChangeAlert( $toemail = "aifs-noreply@" , $userurl = 'http://' , 
-                                    $internal = '', $path = '/var/www/aifs', $domain )  {
+function mailChangeAlert( $toemail = "aifs-noreply@", $userurl = 'http://', 
+                                    $internal = '', $domain = 'aifs.io' )  {
 
-    if ($email == 'aifs-noreply@') {
+    if ($toemail == 'aifs-noreply@') {
         return false;
     }
     if ($userurl == 'http://') {
