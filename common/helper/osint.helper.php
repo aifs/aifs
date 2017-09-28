@@ -6,7 +6,7 @@ namespace Helper;
  * AIFS OSINT Helper File
  * Copyright (c) 2017, Digital Oversight
  * Very basic html parser.
- * @version 1.03
+ * @version 1.04
  */
  
 function cleanhtml( $string )  {
@@ -35,13 +35,13 @@ function cleanhtml( $string )  {
 
 /**
  * Email call on content modification, used in osint_fetch_version.php
- * @version 1.03
+ * @version 1.04
  */
 
-function mailChangeAlert( $toemail = "aifs-noreply@" , $userurl = 'http://' , 
-                                    $internal = '', $path = '/var/www/aifs', $domain )  {
+function mailChangeAlert($toemail = "aifs-noreply@", $userurl = 'http://', 
+                                    $internal = '', $domain = 'aifs.io')  {
 
-    if ($email == 'aifs-noreply@') {
+    if ($toemail == 'aifs-noreply@') {
         return false;
     }
     if ($userurl == 'http://') {
