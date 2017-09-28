@@ -4,12 +4,9 @@ namespace Helper;
 
 /**
  * AIFS OSINT Helper File
- * Copyright (c) 2016, Digital Oversight
- */
- 
-/**
+ * Copyright (c) 2017, Digital Oversight
  * Very basic html parser.
- * @version 1.0
+ * @version 1.03
  */
  
 function cleanhtml( $string )  {
@@ -38,21 +35,18 @@ function cleanhtml( $string )  {
 
 /**
  * Email call on content modification, used in osint_fetch_version.php
- * @version 1.01
+ * @version 1.03
  */
 
-function mailChangeAlert( $email = "aifs-noreply@" , $userurl = 'http://' , 
-                                    $internal="", $path = '/var/www/aifs', $domain )  {
+function mailChangeAlert( $toemail = "aifs-noreply@" , $userurl = 'http://' , 
+                                    $internal = '', $path = '/var/www/aifs', $domain )  {
 
     if ($email == 'aifs-noreply@') {
-        exit;
+        return false;
     }
     if ($userurl == 'http://') {
-        exit;
+        return false;
     }
-    
-    require_once $path.'/common/tool/class.phpmailer.php';
-    require_once $path.'/common/tool/class.smtp.php';
     
     $old_url = $url = $userurl;
     
@@ -61,29 +55,19 @@ function mailChangeAlert( $email = "aifs-noreply@" , $userurl = 'http://' ,
         $url = "http://".$url;
     }
 
-    $mail = new PHPMailer();
+    $from     = "aifs-noreply@".$domain;
+    $subject = "AIFS Notification of changed URL ";
 
-    $mail->From     = "aifs-noreply@".$domain;
-    $mail->FromName = "aifs-noreply@".$domain; 
-    $mail->Mailer   = "mail";
-    $mail->Subject = "Notification of changed URL (".date("d")."/".date("m")."/".date("Y").")";
-
-    $mail->isHTML( true );
-
-    $mail->Body    = "
+    $html = "
         <html><body>
         <table width=\"600\" border=\"0\">
         <tr>
         <td><img src=\"" . $domain . "/aifs/images/aifs-email-small.gif\" alt=\"\" title=\"\" />
         </td><td>
-        <h1><a href=\"" . $domain . "/aifs\">AIFS</a>.
-        </h1>
-        </td>
-        <tr>
+        <h1><a href=\"" . $domain . "/aifs\">AIFS</a></h1>.
+        </td></tr>
         </table>
-        <br />Fellow AIFS user,
-        <br />
-        <br />
+        <br />Fellow AIFS user,<br><br>
         You subscribed to the url: <b>".$old_url."</b>.<br />
         This url has changed recently, you can click <a href=\"".$internal."\">here to see changes on your AIFS.</a><br /> 
         or on this <a href=\"".$url."\">link</a> to visit the site .<br />
@@ -91,7 +75,11 @@ function mailChangeAlert( $email = "aifs-noreply@" , $userurl = 'http://' ,
         <div style=\"font-size:10px; font-color:gray\">AIFS.<br />
         </div></body></html>";
 
-    $mail->AltBody = $body;
-    $mail->AddAddress($email, $email);
-    $mail->Send();
+    $headers = "From: " . strip_tags($from) . "\r\n";
+    $headers .= "Reply-To: ". strip_tags($from) . "\r\n";
+    $headers .= "MIME-Version: 1.0\r\n";
+    $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+    return mail($toemail, $subject, $html, $headers);
+
 } 
