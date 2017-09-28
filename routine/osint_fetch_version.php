@@ -40,8 +40,10 @@ if (strpos($date, date("Y").'-'.date("m").'-'.date("d") ) !== false ) {
 
 }
 
-// fetch online copy
+// Fetch remote copy.
 $content = $fetch->getContent($url);
+$smtpWarn = false;
+$mailUrl = '';
 
 // Compare and save.
 if ( $size != strlen(addslashes($content)))      {
@@ -72,12 +74,17 @@ if ( $size != strlen(addslashes($content)))      {
         $s = $dbh->execute("SELECT aifs_members.email FROM aifs_members
                     WHERE aifs_members.id = ".$row['fk_aifs_member_id']." LIMIT 1");
         list($email) = $s->fetch_array();
-        humintAlert($email, $url, 
-              $mydomain .= 'aifs/page.php?id='.$uid.'&date='.$date);
+        $mailUrl = $mydomain . 'aifs/page.php?id='.$uid.'&date='.$date;
+        if (!humintAlert($email, $url, $mailUrl));
+            $smtpWarn = true;
 
     }
 }
 
 $resp = new Response();
-$resp->success('200200', 'Normal end of execution.');
 
+if ($smtpWarn) {
+    $resp->success('200205', 'Normal end of execution with warnings.');
+} else {
+    $resp->success('200200', 'Normal end of execution.');
+}
