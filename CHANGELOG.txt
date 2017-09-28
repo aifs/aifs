@@ -1,3 +1,8 @@
+1.04
+
+Removed email wrapper.
+Added smtp error warnings on OSINT.
+Removed OCR obsolete c component.
 
 1.03
 
