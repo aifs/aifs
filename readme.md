@@ -1,5 +1,5 @@
-## AIFS v1.03 [aifs.io][1]
-May 30th, 2017
+## AIFS v1.04 [aifs.io][1]
+Sept 28th, 2017
 
 This framework implement large scale information gathering and analysis in order to provide valuable intelligence to a third party software. Using multiple sources, this software calculate the risk factors related to a decision, regardeless of the initial objective and the resulting actions.
 
