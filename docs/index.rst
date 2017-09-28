@@ -22,7 +22,6 @@ The code is open source, and available on `Github <https://github.com/digitalove
    
    routines
    responses
-   aifs-ocr
 
 
 
