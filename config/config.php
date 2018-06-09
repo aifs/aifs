@@ -8,7 +8,7 @@
 
 namespace Config;
 
-$path = '/var/aifs';
+$path = '/home/aifs/aifs';
 $mydomain = 'http://aifs.io';
 $debug = 1;
 $node_name = 'Rollo';

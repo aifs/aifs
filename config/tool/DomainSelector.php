@@ -23,10 +23,10 @@ Class Config extends General {
     
     function __construct( $domain = 'osint' ) {
 
-        $path = '/var/aifs';
+        $path = '/home/aifs/aifs';
         require_once $path . '/config/config.php';
 
-        $this->global_path = '/var/aifs';
+        $this->global_path = '/home/aifs/aifs';
         $this->node_name = $node_name;
         $this->debug = $debug;
         
