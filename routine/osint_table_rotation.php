@@ -18,6 +18,7 @@ use Config\Config;
 use Sql\Sql;
 use Sql\OsintRequest;
 use Common\Common;
+use Component\Response;
 
 $conf = new Config('osint');
 $osint = new OsintRequest();

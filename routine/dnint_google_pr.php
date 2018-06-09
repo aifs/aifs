@@ -13,6 +13,8 @@ ini_set('error_reporting', 1);
 
 require_once '../config/tool/DomainSelector.php';
 use Sql\Sql;
+use Component\Response;
+
 $dbh = new Sql();
 
 $sql = $dbh->execute("SELECT url, u.id 

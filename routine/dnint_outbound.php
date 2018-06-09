@@ -14,6 +14,7 @@ require_once '../common/component/DomainSelector.php';
 
 use Config\Config;
 use Sql\DnintRequest;
+use Component\Response;
 
 $conf = new Config('dnint');
 $dnint = new DnintRequest();

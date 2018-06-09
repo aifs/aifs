@@ -7,8 +7,10 @@
  */
 
 require_once '../config/tool/DomainSelector.php';
+
 use Config\Config;
 use Sql\Sql;
+use Component\Response;
 
 $conf = new Config('dnint');
 $dbh = new Sql();
