@@ -2,7 +2,7 @@
 
 /**
  * AIFS DNINT SQL Requests file
- * @version 1.03
+ * @version 1.04
  * @author Vincent Menard
  * @digitaloversight
  */
@@ -15,7 +15,7 @@ class DnintRequest extends Sql {
     private $page;
     private $url;
 	
-    function __construct() {
+    public function __construct() {
         parent::__construct();
 
         $s = $this->execute("SELECT id, fk_osint_url_id, content FROM osint_version ORDER BY id desc LIMIT 1");
@@ -25,15 +25,15 @@ class DnintRequest extends Sql {
         $this->url = $url;
     }
 
-    function get_outbound( ) {
+    public function get_outbound( ) {
         if ($this->id == null) {
-            die();
+            return 0; 
 	}	
         $s = $this->execute("SELECT count(*) FROM dnint_outbound WHERE fk_osint_version_id=".$this->id);
 		
         $count = $s->sql_result();
         if ($count != 0) {
-            die();
+            return 0; 
         }
         $data = $this->page;
         $data = stripslashes( $data );
@@ -53,5 +53,6 @@ class DnintRequest extends Sql {
                                 fk_osint_version_id=".$this->id);
             }
         }
+        return 1;
     }
 }
