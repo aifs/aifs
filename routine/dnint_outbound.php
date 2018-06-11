@@ -19,7 +19,11 @@ use Component\Response;
 $conf = new Config('dnint');
 $dnint = new DnintRequest();
 
-$dnint->get_outbound();
+$code = $dnint->get_outbound();
 
 $resp = new Response();
+if ($code == 0) {
+    $resp->success('200205', 'Normal end of execution with warnings.');
+}
+
 $resp->success('200200', 'Normal end of execution.');
